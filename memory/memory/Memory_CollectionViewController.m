@@ -11,6 +11,8 @@
 
 @interface Memory_CollectionViewController ()
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) IBOutlet UILabel *ProgressLabel;
+@property (strong, nonatomic) IBOutlet UILabel *TryLabel;
 
 
 
@@ -21,6 +23,29 @@
 static NSString * const reuseIdentifier = @"CardCell";
 
 
+- (IBAction)startANewGame:(id)sender { // IN DRAFT
+    NSLog(@"neu");
+    tryCount = 0;
+    matchedPairCount = 0;
+    flipCount = 0;
+    for (card_CollectionViewCell *cell in self.collectionView.visibleCells){
+        cell.cardBackImage.hidden = NO;
+        cell.cardImage.hidden = YES;
+    }
+    
+//    for (NSUInteger i=0; i<memoryImages.count; i++) {
+//        NSUInteger remainingCount = memoryImages.count - i;
+//        NSUInteger exchangeIndex = i + arc4random_uniform((u_int32_t)remainingCount);
+//        [memoryImages exchangeObjectAtIndex:i withObjectAtIndex:exchangeIndex];
+//    }
+    
+    [self updateLabels];
+}
+
+-(void)updateLabels{
+    [self.ProgressLabel setText: [NSString stringWithFormat:  @"%d von %d Paaren gefunden!", matchedPairCount, memoryImages.count/2 ]];
+    [self.TryLabel setText: [NSString stringWithFormat:  @"%d Züge genutzt!", tryCount]];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,6 +62,8 @@ static NSString * const reuseIdentifier = @"CardCell";
         NSUInteger exchangeIndex = i + arc4random_uniform((u_int32_t)remainingCount);
         [memoryImages exchangeObjectAtIndex:i withObjectAtIndex:exchangeIndex];
     }
+    
+    [self updateLabels];
 
 }
 
@@ -97,10 +124,8 @@ static NSString * const reuseIdentifier = @"CardCell";
             secondCard = cell.cardImage.image;
             secondCardIndex = indexPath;
             flipCount++;
-        }else{
-            
             tryCount++;
-            
+        }else{            
             if ([self compareCards ]) { // Karten gleich
                 //Karten aus Spiel entfernen
                 matchedPairCount++;
@@ -125,6 +150,8 @@ static NSString * const reuseIdentifier = @"CardCell";
         }
         
     }
+
+    [self updateLabels];
 }
 
 -(bool)compareCards{
