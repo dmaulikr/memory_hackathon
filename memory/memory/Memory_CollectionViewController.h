@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  Memory_CollectionViewController.h
 //  memory
 //
 //  Created by Stanislav Sokol on 25.04.15.
@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
-@property (weak, nonatomic) IBOutlet UICollectionViewCell *cell;
+@interface Memory_CollectionViewController : UICollectionViewController
 
 @end
-
