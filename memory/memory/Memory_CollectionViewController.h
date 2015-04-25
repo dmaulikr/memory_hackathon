@@ -10,7 +10,7 @@
 
 @interface Memory_CollectionViewController : UICollectionViewController
 
--(void)turnFaceDown;    // between interface declaration and end @alfbeck
+-(void)turnFaceDownWithCollection:(UICollectionView *)collection;    // between interface declaration and end @alfbeck
 -(bool)compareCards;
 
 @end
@@ -19,5 +19,9 @@ NSArray *memoryImages;
 
 UIImage *firstCard;
 UIImage *secondCard;
+
+
+NSIndexPath *firstCardIndex;
+NSIndexPath *secondCardIndex;
 
 int flipCount = 0;

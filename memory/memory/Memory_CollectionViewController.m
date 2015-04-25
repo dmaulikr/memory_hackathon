@@ -117,17 +117,20 @@ static NSString * const reuseIdentifier = @"CardCell";
         if (flipCount == 0) { //erste Karte von einem Paar
             flipCount++;
             firstCard = cell.cardImage.image;
+            firstCardIndex = indexPath;
         } else{
             secondCard = cell.cardImage.image;
+            secondCardIndex = indexPath;
             
             if ([self compareCards ]) { // Karten gleich
                 //Karten aus Spiel entfernen
                 NSLog(@"gleiche Karte!\n");
-                flipCount = 0;
+               
             }else{
                 NSLog(@"nicht gleiche Karte!\n");
-                [self turnFaceDown]; // allways say where its defined @alfbeck
+                [self turnFaceDownWithCollection:collectionView]; // allways say where its defined @alfbeck
             }
+            flipCount = 0;
         }
         
     }
@@ -136,9 +139,16 @@ static NSString * const reuseIdentifier = @"CardCell";
 -(bool)compareCards{
     return [firstCard isEqual:secondCard];
 }
--(void) turnFaceDown{
-    //something
-    flipCount = 0;
+-(void) turnFaceDownWithCollection:(UICollectionView *) collectionView{
+    card_CollectionViewCell *firstCell = (card_CollectionViewCell*) [collectionView cellForItemAtIndexPath:firstCardIndex];
+
+    firstCell.cardImage.hidden = YES;
+    firstCell.cardBackImage.hidden = NO;
+
+    card_CollectionViewCell *sndCell = (card_CollectionViewCell*) [collectionView cellForItemAtIndexPath:secondCardIndex];
+    
+    sndCell.cardImage.hidden = YES;
+    sndCell.cardBackImage.hidden = NO;
 }
 
 #pragma mark <UICollectionViewDelegate>
