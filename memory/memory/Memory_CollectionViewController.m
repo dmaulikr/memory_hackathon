@@ -21,6 +21,7 @@
 static NSString * const reuseIdentifier = @"CardCell";
 
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -79,7 +80,7 @@ static NSString * const reuseIdentifier = @"CardCell";
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return memoryImages.count;
+    return memoryImages.count * 2;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -89,7 +90,17 @@ static NSString * const reuseIdentifier = @"CardCell";
     
     UIImageView *collectionImageView = (UIImageView*)[cell viewWithTag:100];
     
-    collectionImageView.image = [UIImage imageNamed:[memoryImages objectAtIndex:indexPath.item]];
+    
+    int index;
+    if (indexPath.item >= memoryImages.count) {
+        index = indexPath.item - memoryImages.count;
+    }else{
+        index = indexPath.item;
+    }
+    
+    NSLog(@"%d\n", index);
+    
+    collectionImageView.image = [UIImage imageNamed:[memoryImages objectAtIndex:index]];
     
     
     return cell;
@@ -102,10 +113,32 @@ static NSString * const reuseIdentifier = @"CardCell";
     if (cell.cardImage.hidden) {
         cell.cardImage.hidden = NO;
         cell.cardBackImage.hidden =YES;
-    }else{
-        cell.cardImage.hidden = YES;
-        cell.cardBackImage.hidden = NO;
+        
+        if (flipCount == 0) { //erste Karte von einem Paar
+            flipCount++;
+            firstCard = cell.cardImage.image;
+        } else{
+            secondCard = cell.cardImage.image;
+            
+            if ([self compareCards ]) { // Karten gleich
+                //Karten aus Spiel entfernen
+                NSLog(@"gleiche Karte!\n");
+                flipCount = 0;
+            }else{
+                NSLog(@"nicht gleiche Karte!\n");
+                [self turnFaceDown]; // allways say where its defined @alfbeck
+            }
+        }
+        
     }
+}
+
+-(bool)compareCards{
+    return [firstCard isEqual:secondCard];
+}
+-(void) turnFaceDown{
+    //something
+    flipCount = 0;
 }
 
 #pragma mark <UICollectionViewDelegate>

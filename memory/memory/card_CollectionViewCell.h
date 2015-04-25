@@ -14,3 +14,5 @@
 @property (strong, nonatomic) IBOutlet UIImageView *cardImage;
 
 @end
+
+
