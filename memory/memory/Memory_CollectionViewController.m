@@ -10,7 +10,7 @@
 
 @interface Memory_CollectionViewController ()
 @property (strong, nonatomic) IBOutlet UICollectionView *Memory_CollectionViewController;
-
+@property (strong, nonatomic) NSArray *CardArray;
 @end
 
 @implementation Memory_CollectionViewController
@@ -27,6 +27,13 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     // Do any additional setup after loading the view.
+    NSMutableArray *firstSection = [[NSMutableArray alloc]init];
+    NSMutableArray *secondSection = [[NSMutableArray alloc]init];
+    for (int i=0; i<10; i++) {
+        [firstSection addObject:[NSString stringWithFormat:@"Cell: %d", i]];
+        [secondSection addObject:[NSString stringWithFormat:@"item: %d", i]];
+    }
+    self.CardArray = [[NSArray alloc] initWithObjects:firstSection, secondSection, nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,13 +55,13 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
 
-    return 5;
+    return [self.CardArray count];
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    
-    return 7;
+    NSMutableArray *sectionArray = [self.CardArray objectAtIndex:section];
+    return [sectionArray count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {

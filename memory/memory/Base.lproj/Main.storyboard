@@ -47,7 +47,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="memoryCell" id="0Dv-dj-FqC">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemoryCard" id="0Dv-dj-FqC">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -58,7 +58,7 @@
                             </collectionViewCell>
                         </cells>
                         <connections>
-                            <outlet property="dataSource" destination="F5Z-dW-bpg" id="ayt-Ij-JXJ"/>
+                            <outlet property="dataSource" destination="F5Z-dW-bpg" id="afn-LX-eg7"/>
                             <outlet property="delegate" destination="F5Z-dW-bpg" id="JVG-yb-qEh"/>
                         </connections>
                     </collectionView>
@@ -68,7 +68,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uh8-QV-2eN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1097" y="378"/>
+            <point key="canvasLocation" x="1131" y="401"/>
         </scene>
     </scenes>
 </document>
