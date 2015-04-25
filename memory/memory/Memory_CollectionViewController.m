@@ -10,8 +10,8 @@
 #import "card_CollectionViewCell.h"
 
 @interface Memory_CollectionViewController ()
-@property (strong, nonatomic) IBOutlet UICollectionView *Memory_CollectionViewController;
-@property (strong, nonatomic) NSArray *CardArray;
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+
 
 
 @end
@@ -25,7 +25,10 @@ static NSString * const reuseIdentifier = @"CardCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    memoryImages = [NSMutableArray arrayWithObjects:@"Prozessor2.jpg", @"apple2.jpg", @"dhbw2.jpg", @"flags2.jpg", @"pc2.jpg", @"strand2.jpg", @"wolf2.jpg", nil];
+    self.collectionView.dataSource = self;
+    self.collectionView.delegate = self;
+    
+    memoryImages = [NSMutableArray arrayWithObjects:@"01.png",@"02.png",@"03.png",@"04.png",@"05.png",@"06.png",@"07.jpg",@"08.png",@"09.png",@"10.png",nil];
     
     [memoryImages addObjectsFromArray:memoryImages];
     
@@ -95,13 +98,27 @@ static NSString * const reuseIdentifier = @"CardCell";
             secondCardIndex = indexPath;
             flipCount++;
         }else{
+            
+            tryCount++;
+            
             if ([self compareCards ]) { // Karten gleich
                 //Karten aus Spiel entfernen
-                NSLog(@"gleiche Karte!\n");
+                matchedPairCount++;
+                if (matchedPairCount == memoryImages.count / 2) {
+                    UIAlertView *alert = [[UIAlertView alloc]initWithTitle: @"Gewonnen!"
+                                                                   message: @"in %d Zügen"
+                                                                  delegate: self
+                                                         cancelButtonTitle: nil
+                                                         otherButtonTitles:@"OK",nil];
+                    
+                    [alert setTag:1];
+                    [alert show];
+                }
+                
             }else{
-                NSLog(@"nicht gleiche Karte!\n");
                 [self turnFaceDownWithCollection:collectionView]; // allways say where its defined @alfbeck
             }
+            
             firstCard = cell.cardImage.image;
             firstCardIndex = indexPath;
             flipCount = 1;
@@ -115,14 +132,13 @@ static NSString * const reuseIdentifier = @"CardCell";
 }
 -(void) turnFaceDownWithCollection:(UICollectionView *) collectionView{
     card_CollectionViewCell *firstCell = (card_CollectionViewCell*) [collectionView cellForItemAtIndexPath:firstCardIndex];
-
-    firstCell.cardImage.hidden = YES;
-    firstCell.cardBackImage.hidden = NO;
-
     card_CollectionViewCell *sndCell = (card_CollectionViewCell*) [collectionView cellForItemAtIndexPath:secondCardIndex];
     
-    sndCell.cardImage.hidden = YES;
+    firstCell.cardBackImage.hidden = NO;
     sndCell.cardBackImage.hidden = NO;
+    
+    firstCell.cardImage.hidden = YES;
+    sndCell.cardImage.hidden = YES;
 }
 
 #pragma mark <UICollectionViewDelegate>

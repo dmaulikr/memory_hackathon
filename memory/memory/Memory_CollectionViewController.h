@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Memory_CollectionViewController : UICollectionViewController
+@interface Memory_CollectionViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
 -(void)turnFaceDownWithCollection:(UICollectionView *)collection;    // between interface declaration and end @alfbeck
 -(bool)compareCards;
@@ -25,3 +25,5 @@ NSIndexPath *firstCardIndex;
 NSIndexPath *secondCardIndex;
 
 int flipCount = 0;
+int tryCount = 0;
+int matchedPairCount = 0;
