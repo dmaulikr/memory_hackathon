@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00BAA2C21AEBA8C70037F8FE /* cardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00BAA2C11AEBA8C70037F8FE /* cardCell.xib */; };
 		0C4EAEED1AEB8601009505EF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C4EAEEC1AEB8601009505EF /* main.m */; };
 		0C4EAEF01AEB8601009505EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C4EAEEF1AEB8601009505EF /* AppDelegate.m */; };
 		0C4EAEF61AEB8601009505EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C4EAEF41AEB8601009505EF /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00BAA2C11AEBA8C70037F8FE /* cardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = cardCell.xib; sourceTree = "<group>"; };
 		0C4EAEE71AEB8601009505EF /* memory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = memory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C4EAEEB1AEB8601009505EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C4EAEEC1AEB8601009505EF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				0C4EAEEA1AEB8601009505EF /* Supporting Files */,
 				0C4EAF101AEB90FF009505EF /* Memory_CollectionViewController.h */,
 				0C4EAF111AEB90FF009505EF /* Memory_CollectionViewController.m */,
+				00BAA2C11AEBA8C70037F8FE /* cardCell.xib */,
 			);
 			path = memory;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				0C4EAEF61AEB8601009505EF /* Main.storyboard in Resources */,
 				0C4EAEFB1AEB8601009505EF /* LaunchScreen.xib in Resources */,
 				0C4EAEF81AEB8601009505EF /* Images.xcassets in Resources */,
+				00BAA2C21AEBA8C70037F8FE /* cardCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +418,7 @@
 				0C4EAF0C1AEB8601009505EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0C4EAF0D1AEB8601009505EF /* Build configuration list for PBXNativeTarget "memoryTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +427,7 @@
 				0C4EAF0F1AEB8601009505EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

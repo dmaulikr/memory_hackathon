@@ -34,6 +34,16 @@ static NSString * const reuseIdentifier = @"Cell";
         [secondSection addObject:[NSString stringWithFormat:@"item: %d", i]];
     }
     self.CardArray = [[NSArray alloc] initWithObjects:firstSection, secondSection, nil];
+    
+    UINib *cardCell = [UINib nibWithNibName:@"cardCell" bundle:nil];
+    [self.collectionView registerNib:cardCell forCellWithReuseIdentifier:@"cvCell"];
+    
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    [flowLayout setItemSize:CGSizeMake(200, 200)];
+    [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+    
+    [self.collectionView setCollectionViewLayout:flowLayout];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,9 +75,15 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     // Configure the cell
+    NSMutableArray *data = [self.CardArray objectAtIndex:indexPath.section];
+    NSString *cellData = [data objectAtIndex:indexPath.row];
+    static NSString *cellIdentifier = @"cvCell";
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+    
+    UILabel *titleLabel = (UILabel*)[cell viewWithTag:100];
+    [titleLabel setText:cellData];
     
     return cell;
 }
