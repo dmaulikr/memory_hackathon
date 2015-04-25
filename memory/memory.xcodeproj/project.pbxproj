@@ -7,7 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00BAA2C41AEBB9250037F8FE /* raster-4071302.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00BAA2C31AEBB9250037F8FE /* raster-4071302.jpg */; };
+		00B7ADC21AEBE3CE0042949B /* Prozessor2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00B7ADC11AEBE3CE0042949B /* Prozessor2.jpg */; };
+		00B7ADC91AEBE43A0042949B /* apple2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00B7ADC31AEBE43A0042949B /* apple2.jpg */; };
+		00B7ADCA1AEBE43A0042949B /* dhbw2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00B7ADC41AEBE43A0042949B /* dhbw2.jpg */; };
+		00B7ADCB1AEBE43A0042949B /* flags2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00B7ADC51AEBE43A0042949B /* flags2.jpg */; };
+		00B7ADCC1AEBE43A0042949B /* pc2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00B7ADC61AEBE43A0042949B /* pc2.jpg */; };
+		00B7ADCD1AEBE43A0042949B /* strand2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00B7ADC71AEBE43A0042949B /* strand2.jpg */; };
+		00B7ADCE1AEBE43A0042949B /* wolf2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00B7ADC81AEBE43A0042949B /* wolf2.jpg */; };
+		00B7ADD11AEBE8F50042949B /* raster.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00B7ADD01AEBE8F50042949B /* raster.jpg */; };
 		00BAA2C71AEBBB610037F8FE /* card_CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BAA2C61AEBBB610037F8FE /* card_CollectionViewCell.m */; };
 		0C4EAEED1AEB8601009505EF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C4EAEEC1AEB8601009505EF /* main.m */; };
 		0C4EAEF01AEB8601009505EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C4EAEEF1AEB8601009505EF /* AppDelegate.m */; };
@@ -29,7 +36,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00BAA2C31AEBB9250037F8FE /* raster-4071302.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "raster-4071302.jpg"; sourceTree = "<group>"; };
+		00B7ADC11AEBE3CE0042949B /* Prozessor2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Prozessor2.jpg; sourceTree = "<group>"; };
+		00B7ADC31AEBE43A0042949B /* apple2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = apple2.jpg; sourceTree = "<group>"; };
+		00B7ADC41AEBE43A0042949B /* dhbw2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dhbw2.jpg; sourceTree = "<group>"; };
+		00B7ADC51AEBE43A0042949B /* flags2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = flags2.jpg; sourceTree = "<group>"; };
+		00B7ADC61AEBE43A0042949B /* pc2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pc2.jpg; sourceTree = "<group>"; };
+		00B7ADC71AEBE43A0042949B /* strand2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = strand2.jpg; sourceTree = "<group>"; };
+		00B7ADC81AEBE43A0042949B /* wolf2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wolf2.jpg; sourceTree = "<group>"; };
+		00B7ADD01AEBE8F50042949B /* raster.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = raster.jpg; sourceTree = "<group>"; };
 		00BAA2C51AEBBB610037F8FE /* card_CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = card_CollectionViewCell.h; sourceTree = "<group>"; };
 		00BAA2C61AEBBB610037F8FE /* card_CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = card_CollectionViewCell.m; sourceTree = "<group>"; };
 		0C4EAEE71AEB8601009505EF /* memory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = memory.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +79,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00B7ADCF1AEBE4450042949B /* Pictures */ = {
+			isa = PBXGroup;
+			children = (
+				00B7ADC31AEBE43A0042949B /* apple2.jpg */,
+				00B7ADC41AEBE43A0042949B /* dhbw2.jpg */,
+				00B7ADC51AEBE43A0042949B /* flags2.jpg */,
+				00B7ADC61AEBE43A0042949B /* pc2.jpg */,
+				00B7ADC71AEBE43A0042949B /* strand2.jpg */,
+				00B7ADC81AEBE43A0042949B /* wolf2.jpg */,
+				00B7ADC11AEBE3CE0042949B /* Prozessor2.jpg */,
+			);
+			name = Pictures;
+			sourceTree = "<group>";
+		};
 		0C4EAEDE1AEB85FF009505EF = {
 			isa = PBXGroup;
 			children = (
@@ -104,8 +132,9 @@
 			isa = PBXGroup;
 			children = (
 				0C4EAEEB1AEB8601009505EF /* Info.plist */,
-				00BAA2C31AEBB9250037F8FE /* raster-4071302.jpg */,
+				00B7ADCF1AEBE4450042949B /* Pictures */,
 				0C4EAEEC1AEB8601009505EF /* main.m */,
+				00B7ADD01AEBE8F50042949B /* raster.jpg */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -207,10 +236,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00B7ADD11AEBE8F50042949B /* raster.jpg in Resources */,
+				00B7ADCC1AEBE43A0042949B /* pc2.jpg in Resources */,
+				00B7ADCB1AEBE43A0042949B /* flags2.jpg in Resources */,
+				00B7ADCD1AEBE43A0042949B /* strand2.jpg in Resources */,
+				00B7ADCA1AEBE43A0042949B /* dhbw2.jpg in Resources */,
 				0C4EAEF61AEB8601009505EF /* Main.storyboard in Resources */,
 				0C4EAEFB1AEB8601009505EF /* LaunchScreen.xib in Resources */,
 				0C4EAEF81AEB8601009505EF /* Images.xcassets in Resources */,
-				00BAA2C41AEBB9250037F8FE /* raster-4071302.jpg in Resources */,
+				00B7ADC21AEBE3CE0042949B /* Prozessor2.jpg in Resources */,
+				00B7ADCE1AEBE43A0042949B /* wolf2.jpg in Resources */,
+				00B7ADC91AEBE43A0042949B /* apple2.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface card_CollectionViewCell : UICollectionViewCell
+
 @property (strong, nonatomic) IBOutlet UIImageView *cardBackImage;
 @property (strong, nonatomic) IBOutlet UIImageView *cardImage;
 

@@ -13,3 +13,4 @@
 @end
 
 NSArray *memoryImages;
+NSArray *memoryImagesDouble;

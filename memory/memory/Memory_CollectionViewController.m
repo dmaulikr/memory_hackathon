@@ -20,10 +20,12 @@
 
 static NSString * const reuseIdentifier = @"CardCell";
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    memoryImages = [NSArray arrayWithObjects:@"raster-4071302.jpg", nil];
+    memoryImages = [NSArray arrayWithObjects:@"Prozessor2.jpg", @"apple2.jpg", @"dhbw2.jpg", @"flags2.jpg", @"pc2.jpg", @"strand2.jpg", @"wolf2.jpg", nil];
+    
     
     
     
@@ -77,7 +79,7 @@ static NSString * const reuseIdentifier = @"CardCell";
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return memoryImages.count * 20;
+    return memoryImages.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -87,7 +89,7 @@ static NSString * const reuseIdentifier = @"CardCell";
     
     UIImageView *collectionImageView = (UIImageView*)[cell viewWithTag:100];
     
-    collectionImageView.image = [UIImage imageNamed:[memoryImages objectAtIndex:0]];
+    collectionImageView.image = [UIImage imageNamed:[memoryImages objectAtIndex:indexPath.item]];
     
     
     return cell;
