@@ -25,35 +25,16 @@ static NSString * const reuseIdentifier = @"CardCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    memoryImages = [NSArray arrayWithObjects:@"Prozessor2.jpg", @"apple2.jpg", @"dhbw2.jpg", @"flags2.jpg", @"pc2.jpg", @"strand2.jpg", @"wolf2.jpg", nil];
+    memoryImages = [NSMutableArray arrayWithObjects:@"Prozessor2.jpg", @"apple2.jpg", @"dhbw2.jpg", @"flags2.jpg", @"pc2.jpg", @"strand2.jpg", @"wolf2.jpg", nil];
     
+    [memoryImages addObjectsFromArray:memoryImages];
     
-    
-    
-//    // Uncomment the following line to preserve selection between presentations
-//    // self.clearsSelectionOnViewWillAppear = NO;
-//    
-//    // Register cell classes
-//    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
-//    
-//    
-//    // Do any additional setup after loading the view.
-//    int maxNumCards = 12;
-//    
-//    NSMutableArray *firstSection = [[NSMutableArray alloc]init];
-//    for (int i=0; i<maxNumCards; i++) {
-//        [firstSection addObject:[NSString stringWithFormat:@"Cell: %d", i]];
-//    }
-//    self.CardArray = [[NSArray alloc] initWithObjects:firstSection, nil];
-//    
-//    [self.collectionView registerClass:[card_CollectionViewCell class] forCellWithReuseIdentifier:@"CardCell"];
-//    
-//    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-//    [flowLayout setItemSize:CGSizeMake(200, 200)];
-//    [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
-//    
-//    [self.collectionView setCollectionViewLayout:flowLayout];
-    
+    for (NSUInteger i=0; i<memoryImages.count; i++) {
+        NSUInteger remainingCount = memoryImages.count - i;
+        NSUInteger exchangeIndex = i + arc4random_uniform((u_int32_t)remainingCount);
+        [memoryImages exchangeObjectAtIndex:i withObjectAtIndex:exchangeIndex];
+    }
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -80,7 +61,7 @@ static NSString * const reuseIdentifier = @"CardCell";
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return memoryImages.count * 2;
+    return memoryImages.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -89,18 +70,9 @@ static NSString * const reuseIdentifier = @"CardCell";
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     UIImageView *collectionImageView = (UIImageView*)[cell viewWithTag:100];
+
     
-    
-    int index;
-    if (indexPath.item >= memoryImages.count) {
-        index = indexPath.item - memoryImages.count;
-    }else{
-        index = indexPath.item;
-    }
-    
-    NSLog(@"%d\n", index);
-    
-    collectionImageView.image = [UIImage imageNamed:[memoryImages objectAtIndex:index]];
+    collectionImageView.image = [UIImage imageNamed:[memoryImages objectAtIndex:indexPath.item]];
     
     
     return cell;
@@ -118,19 +90,21 @@ static NSString * const reuseIdentifier = @"CardCell";
             flipCount++;
             firstCard = cell.cardImage.image;
             firstCardIndex = indexPath;
-        } else{
+        } else if(flipCount==1){
             secondCard = cell.cardImage.image;
             secondCardIndex = indexPath;
-            
+            flipCount++;
+        }else{
             if ([self compareCards ]) { // Karten gleich
                 //Karten aus Spiel entfernen
                 NSLog(@"gleiche Karte!\n");
-               
             }else{
                 NSLog(@"nicht gleiche Karte!\n");
                 [self turnFaceDownWithCollection:collectionView]; // allways say where its defined @alfbeck
             }
-            flipCount = 0;
+            firstCard = cell.cardImage.image;
+            firstCardIndex = indexPath;
+            flipCount = 1;
         }
         
     }

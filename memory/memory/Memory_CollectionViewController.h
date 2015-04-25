@@ -15,7 +15,7 @@
 
 @end
 
-NSArray *memoryImages;
+NSMutableArray *memoryImages;
 
 UIImage *firstCard;
 UIImage *secondCard;
