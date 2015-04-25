@@ -9,6 +9,7 @@
 #import "Memory_CollectionViewController.h"
 
 @interface Memory_CollectionViewController ()
+@property (strong, nonatomic) IBOutlet UICollectionView *Memory_CollectionViewController;
 
 @end
 
