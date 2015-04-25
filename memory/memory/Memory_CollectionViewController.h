@@ -11,3 +11,5 @@
 @interface Memory_CollectionViewController : UICollectionViewController
 
 @end
+
+NSArray *memoryImages;

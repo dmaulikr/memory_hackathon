@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00BAA2C21AEBA8C70037F8FE /* cardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00BAA2C11AEBA8C70037F8FE /* cardCell.xib */; };
+		00BAA2C41AEBB9250037F8FE /* raster-4071302.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00BAA2C31AEBB9250037F8FE /* raster-4071302.jpg */; };
+		00BAA2C71AEBBB610037F8FE /* card_CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BAA2C61AEBBB610037F8FE /* card_CollectionViewCell.m */; };
 		0C4EAEED1AEB8601009505EF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C4EAEEC1AEB8601009505EF /* main.m */; };
 		0C4EAEF01AEB8601009505EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C4EAEEF1AEB8601009505EF /* AppDelegate.m */; };
 		0C4EAEF61AEB8601009505EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C4EAEF41AEB8601009505EF /* Main.storyboard */; };
@@ -28,7 +29,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00BAA2C11AEBA8C70037F8FE /* cardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = cardCell.xib; sourceTree = "<group>"; };
+		00BAA2C31AEBB9250037F8FE /* raster-4071302.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "raster-4071302.jpg"; sourceTree = "<group>"; };
+		00BAA2C51AEBBB610037F8FE /* card_CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = card_CollectionViewCell.h; sourceTree = "<group>"; };
+		00BAA2C61AEBBB610037F8FE /* card_CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = card_CollectionViewCell.m; sourceTree = "<group>"; };
 		0C4EAEE71AEB8601009505EF /* memory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = memory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C4EAEEB1AEB8601009505EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C4EAEEC1AEB8601009505EF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -91,7 +94,8 @@
 				0C4EAEEA1AEB8601009505EF /* Supporting Files */,
 				0C4EAF101AEB90FF009505EF /* Memory_CollectionViewController.h */,
 				0C4EAF111AEB90FF009505EF /* Memory_CollectionViewController.m */,
-				00BAA2C11AEBA8C70037F8FE /* cardCell.xib */,
+				00BAA2C51AEBBB610037F8FE /* card_CollectionViewCell.h */,
+				00BAA2C61AEBBB610037F8FE /* card_CollectionViewCell.m */,
 			);
 			path = memory;
 			sourceTree = "<group>";
@@ -100,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				0C4EAEEB1AEB8601009505EF /* Info.plist */,
+				00BAA2C31AEBB9250037F8FE /* raster-4071302.jpg */,
 				0C4EAEEC1AEB8601009505EF /* main.m */,
 			);
 			name = "Supporting Files";
@@ -205,7 +210,7 @@
 				0C4EAEF61AEB8601009505EF /* Main.storyboard in Resources */,
 				0C4EAEFB1AEB8601009505EF /* LaunchScreen.xib in Resources */,
 				0C4EAEF81AEB8601009505EF /* Images.xcassets in Resources */,
-				00BAA2C21AEBA8C70037F8FE /* cardCell.xib in Resources */,
+				00BAA2C41AEBB9250037F8FE /* raster-4071302.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,6 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00BAA2C71AEBBB610037F8FE /* card_CollectionViewCell.m in Sources */,
 				0C4EAEF01AEB8601009505EF /* AppDelegate.m in Sources */,
 				0C4EAEED1AEB8601009505EF /* main.m in Sources */,
 				0C4EAF121AEB90FF009505EF /* Memory_CollectionViewController.m in Sources */,
@@ -350,6 +356,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = memory/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -360,6 +367,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = memory/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

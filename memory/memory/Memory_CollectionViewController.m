@@ -7,42 +7,49 @@
 //
 
 #import "Memory_CollectionViewController.h"
+#import "card_CollectionViewCell.h"
 
 @interface Memory_CollectionViewController ()
 @property (strong, nonatomic) IBOutlet UICollectionView *Memory_CollectionViewController;
 @property (strong, nonatomic) NSArray *CardArray;
+
+
 @end
 
 @implementation Memory_CollectionViewController
 
-static NSString * const reuseIdentifier = @"Cell";
+static NSString * const reuseIdentifier = @"CardCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
+    memoryImages = [NSArray arrayWithObjects:@"raster-4071302.jpg", nil];
     
-    // Register cell classes
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
-    // Do any additional setup after loading the view.
-    NSMutableArray *firstSection = [[NSMutableArray alloc]init];
-    NSMutableArray *secondSection = [[NSMutableArray alloc]init];
-    for (int i=0; i<10; i++) {
-        [firstSection addObject:[NSString stringWithFormat:@"Cell: %d", i]];
-        [secondSection addObject:[NSString stringWithFormat:@"item: %d", i]];
-    }
-    self.CardArray = [[NSArray alloc] initWithObjects:firstSection, secondSection, nil];
     
-    UINib *cardCell = [UINib nibWithNibName:@"cardCell" bundle:nil];
-    [self.collectionView registerNib:cardCell forCellWithReuseIdentifier:@"cvCell"];
-    
-    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    [flowLayout setItemSize:CGSizeMake(200, 200)];
-    [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
-    
-    [self.collectionView setCollectionViewLayout:flowLayout];
+//    // Uncomment the following line to preserve selection between presentations
+//    // self.clearsSelectionOnViewWillAppear = NO;
+//    
+//    // Register cell classes
+//    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+//    
+//    
+//    // Do any additional setup after loading the view.
+//    int maxNumCards = 12;
+//    
+//    NSMutableArray *firstSection = [[NSMutableArray alloc]init];
+//    for (int i=0; i<maxNumCards; i++) {
+//        [firstSection addObject:[NSString stringWithFormat:@"Cell: %d", i]];
+//    }
+//    self.CardArray = [[NSArray alloc] initWithObjects:firstSection, nil];
+//    
+//    [self.collectionView registerClass:[card_CollectionViewCell class] forCellWithReuseIdentifier:@"CardCell"];
+//    
+//    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+//    [flowLayout setItemSize:CGSizeMake(200, 200)];
+//    [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+//    
+//    [self.collectionView setCollectionViewLayout:flowLayout];
     
 }
 
@@ -65,27 +72,38 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
 
-    return [self.CardArray count];
+    return 1;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    NSMutableArray *sectionArray = [self.CardArray objectAtIndex:section];
-    return [sectionArray count];
+    return memoryImages.count * 20;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    // Configure the cell
-    NSMutableArray *data = [self.CardArray objectAtIndex:indexPath.section];
-    NSString *cellData = [data objectAtIndex:indexPath.row];
-    static NSString *cellIdentifier = @"cvCell";
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     
-    UILabel *titleLabel = (UILabel*)[cell viewWithTag:100];
-    [titleLabel setText:cellData];
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    
+    UIImageView *collectionImageView = (UIImageView*)[cell viewWithTag:100];
+    
+    collectionImageView.image = [UIImage imageNamed:[memoryImages objectAtIndex:0]];
+    
     
     return cell;
+}
+
+
+- (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    card_CollectionViewCell *cell = (card_CollectionViewCell*) [collectionView cellForItemAtIndexPath:indexPath];
+    
+    if (cell.cardImage.hidden) {
+        cell.cardImage.hidden = NO;
+        cell.cardBackImage.hidden =YES;
+    }else{
+        cell.cardImage.hidden = YES;
+        cell.cardBackImage.hidden = NO;
+    }
 }
 
 #pragma mark <UICollectionViewDelegate>
