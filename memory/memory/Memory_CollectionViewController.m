@@ -57,10 +57,10 @@ static NSString * const reuseIdentifier = @"CardCell";
     
     [memoryImages addObjectsFromArray:memoryImages];
     
-   for (NSUInteger i=0; i<memoryImages.count; i++) {
+    for (NSUInteger i=0; i<memoryImages.count; i++) {
         NSUInteger remainingCount = memoryImages.count - i;
         NSUInteger exchangeIndex = i + arc4random_uniform((u_int32_t)remainingCount);
-       [memoryImages exchangeObjectAtIndex:i withObjectAtIndex:exchangeIndex];
+        [memoryImages exchangeObjectAtIndex:i withObjectAtIndex:exchangeIndex];
     }
     
     
@@ -126,22 +126,24 @@ static NSString * const reuseIdentifier = @"CardCell";
             secondCardIndex = indexPath;
             flipCount++;
             tryCount++;
-        }else{            
+            
+            if (matchedPairCount == memoryImages.count / 2 - 1) {
+                matchedPairCount++;
+                NSLog(@"gewonnen");
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle: @"Gewonnen!"
+                                                               message: [NSString stringWithFormat: @"in %d Zügen", tryCount ]
+                                                              delegate: self
+                                                     cancelButtonTitle: nil
+                                                     otherButtonTitles:@"OK",nil];
+                
+                [alert setTag:1];
+                [alert show];
+            }
+            
+        }else{
             if ([self compareCards ]) { // Karten gleich
                 //Karten aus Spiel entfernen
                 matchedPairCount++;
-                if (matchedPairCount == memoryImages.count / 2) {
-                    NSLog(@"gewonnen");
-                    UIAlertView *alert = [[UIAlertView alloc]initWithTitle: @"Gewonnen!"
-                                                                   message: @"in %d Zügen"
-                                                                  delegate: self
-                                                         cancelButtonTitle: nil
-                                                         otherButtonTitles:@"OK",nil];
-                    
-                    [alert setTag:1];
-                    [alert show];
-                }
-                
             }else{
                 [self turnFaceDownWithCollection:collectionView]; // allways say where its defined @alfbeck
             }
