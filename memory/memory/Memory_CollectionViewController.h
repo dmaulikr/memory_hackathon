@@ -20,6 +20,9 @@ NSMutableArray *memoryImages;
 UIImage *firstCard;
 UIImage *secondCard;
 
+UIImageView *firstImageView;
+UIImageView *secondImageView;
+
 
 NSIndexPath *firstCardIndex;
 NSIndexPath *secondCardIndex;

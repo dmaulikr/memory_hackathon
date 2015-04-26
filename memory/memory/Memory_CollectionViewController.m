@@ -8,6 +8,7 @@
 
 #import "Memory_CollectionViewController.h"
 #import "card_CollectionViewCell.h"
+@import UIKit;
 
 @interface Memory_CollectionViewController ()
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -116,12 +117,16 @@ static NSString * const reuseIdentifier = @"CardCell";
         cell.cardImage.hidden = NO;
         cell.cardBackImage.hidden =YES;
         
+
+        
         if (flipCount == 0) { //erste Karte von einem Paar
             flipCount++;
-            firstCard = cell.cardImage.image;
+            firstImageView = cell.cardImage;
+            //firstCard = cell.cardImage.image;
             firstCardIndex = indexPath;
         } else if(flipCount==1){
-            secondCard = cell.cardImage.image;
+            secondImageView = cell.cardImage;
+            //secondCard = cell.cardImage.image;
             secondCardIndex = indexPath;
             flipCount++;
             tryCount++;
@@ -137,17 +142,25 @@ static NSString * const reuseIdentifier = @"CardCell";
                 
                 [alert setTag:1];
                 [alert show];
+                [firstImageView.layer setBorderColor:[[UIColor greenColor]CGColor]];
+                [firstImageView.layer setBorderWidth:2.0];
+                [secondImageView.layer setBorderColor:[[UIColor greenColor]CGColor]];
+                [secondImageView.layer setBorderWidth:2.0];
             }
             
         }else{
             if ([self compareCards ]) { // Karten gleich
                 //Karten aus Spiel entfernen
                 matchedPairCount++;
+                [firstImageView.layer setBorderColor:[[UIColor greenColor]CGColor]];
+                [firstImageView.layer setBorderWidth:2.0];
+                [secondImageView.layer setBorderColor:[[UIColor greenColor]CGColor]];
+                [secondImageView.layer setBorderWidth:2.0];
             }else{
                 [self turnFaceDownWithCollection:collectionView]; // allways say where its defined @alfbeck
             }
-            
-            firstCard = cell.cardImage.image;
+            firstImageView = cell.cardImage;
+            //firstCard = cell.cardImage.image;
             firstCardIndex = indexPath;
             flipCount = 1;
         }
@@ -158,7 +171,7 @@ static NSString * const reuseIdentifier = @"CardCell";
 }
 
 -(bool)compareCards{
-    return [firstCard isEqual:secondCard];
+    return [firstImageView.image isEqual:secondImageView.image];
 }
 -(void) turnFaceDownWithCollection:(UICollectionView *) collectionView{
     card_CollectionViewCell *firstCell = (card_CollectionViewCell*) [collectionView cellForItemAtIndexPath:firstCardIndex];
@@ -177,12 +190,12 @@ static NSString * const reuseIdentifier = @"CardCell";
 
 #pragma mark <UICollectionViewDelegate>
 
-/*
+
 // Uncomment this method to specify if the specified item should be highlighted during tracking
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
 	return YES;
 }
-*/
+
 
 /*
 // Uncomment this method to specify if the specified item should be selected
