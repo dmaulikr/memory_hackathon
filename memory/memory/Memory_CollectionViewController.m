@@ -57,12 +57,11 @@ static NSString * const reuseIdentifier = @"CardCell";
     
     [memoryImages addObjectsFromArray:memoryImages];
     
-    for (NSUInteger i=0; i<memoryImages.count; i++) {
+   for (NSUInteger i=0; i<memoryImages.count; i++) {
         NSUInteger remainingCount = memoryImages.count - i;
         NSUInteger exchangeIndex = i + arc4random_uniform((u_int32_t)remainingCount);
-        [memoryImages exchangeObjectAtIndex:i withObjectAtIndex:exchangeIndex];
+       [memoryImages exchangeObjectAtIndex:i withObjectAtIndex:exchangeIndex];
     }
-    
     
     [self updateLabels];
 
@@ -170,6 +169,10 @@ static NSString * const reuseIdentifier = @"CardCell";
     
     firstCell.cardImage.hidden = YES;
     sndCell.cardImage.hidden = YES;
+}
+
+-(BOOL)shouldAutorotate{
+    return NO;
 }
 
 #pragma mark <UICollectionViewDelegate>
