@@ -47,8 +47,12 @@ static NSString * const reuseIdentifier = @"CardCell";
     [self.TryLabel setText: [NSString stringWithFormat:  @"%d Züge genutzt!", tryCount]];
 }
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+
+
     
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
@@ -117,6 +121,7 @@ static NSString * const reuseIdentifier = @"CardCell";
         cell.cardImage.hidden = NO;
         cell.cardBackImage.hidden =YES;
         
+        
         if (flipCount == 0) { //erste Karte von einem Paar
             flipCount++;
             firstCard = cell.cardImage.image;
@@ -172,14 +177,24 @@ static NSString * const reuseIdentifier = @"CardCell";
     sndCell.cardImage.hidden = YES;
 }
 
+- (BOOL) shouldAutorotate{
+    return YES;
+}
+
+
+
+-(NSUInteger)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 #pragma mark <UICollectionViewDelegate>
 
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
-}
-*/
+
+//// Uncomment this method to specify if the specified item should be highlighted during tracking
+//- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+//	return YES;
+//}
+
 
 /*
 // Uncomment this method to specify if the specified item should be selected
