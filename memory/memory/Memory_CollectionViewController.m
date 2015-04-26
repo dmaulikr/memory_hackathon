@@ -194,10 +194,21 @@ static NSString * const reuseIdentifier = @"CardCell";
 
 
 
+-(NSUInteger)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskPortrait;
+}
 // Uncomment this method to specify if the specified item should be highlighted during tracking
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
 	return YES;
 }
+
+#pragma mark <UICollectionViewDelegate>
+
+
+//// Uncomment this method to specify if the specified item should be highlighted during tracking
+//- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+//	return YES;
+//}
 
 
 /*
