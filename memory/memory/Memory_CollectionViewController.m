@@ -57,11 +57,11 @@ static NSString * const reuseIdentifier = @"CardCell";
     
     [memoryImages addObjectsFromArray:memoryImages];
     
-//    for (NSUInteger i=0; i<memoryImages.count; i++) {
-//        NSUInteger remainingCount = memoryImages.count - i;
-//        NSUInteger exchangeIndex = i + arc4random_uniform((u_int32_t)remainingCount);
-//        [memoryImages exchangeObjectAtIndex:i withObjectAtIndex:exchangeIndex];
-//    }
+   for (NSUInteger i=0; i<memoryImages.count; i++) {
+        NSUInteger remainingCount = memoryImages.count - i;
+        NSUInteger exchangeIndex = i + arc4random_uniform((u_int32_t)remainingCount);
+       [memoryImages exchangeObjectAtIndex:i withObjectAtIndex:exchangeIndex];
+    }
     
     
     [self updateLabels];
