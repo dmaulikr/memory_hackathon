@@ -48,8 +48,12 @@ static NSString * const reuseIdentifier = @"CardCell";
     [self.TryLabel setText: [NSString stringWithFormat:  @"%d Züge genutzt!", tryCount]];
 }
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+
+
     
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
@@ -184,11 +188,10 @@ static NSString * const reuseIdentifier = @"CardCell";
     sndCell.cardImage.hidden = YES;
 }
 
--(BOOL)shouldAutorotate{
-    return NO;
+- (BOOL) shouldAutorotate{
+    return YES;
 }
 
-#pragma mark <UICollectionViewDelegate>
 
 
 // Uncomment this method to specify if the specified item should be highlighted during tracking
