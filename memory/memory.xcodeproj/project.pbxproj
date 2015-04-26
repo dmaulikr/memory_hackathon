@@ -26,6 +26,7 @@
 		0C4EAEFB1AEB8601009505EF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C4EAEF91AEB8601009505EF /* LaunchScreen.xib */; };
 		0C4EAF071AEB8601009505EF /* memoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C4EAF061AEB8601009505EF /* memoryTests.m */; };
 		0C4EAF121AEB90FF009505EF /* Memory_CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C4EAF111AEB90FF009505EF /* Memory_CollectionViewController.m */; };
+		0C64B8361AECCAEE0015BCC8 /* apple.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C64B8351AECCAEE0015BCC8 /* apple.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		0C4EAF061AEB8601009505EF /* memoryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = memoryTests.m; sourceTree = "<group>"; };
 		0C4EAF101AEB90FF009505EF /* Memory_CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Memory_CollectionViewController.h; sourceTree = "<group>"; };
 		0C4EAF111AEB90FF009505EF /* Memory_CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Memory_CollectionViewController.m; sourceTree = "<group>"; };
+		0C64B8351AECCAEE0015BCC8 /* apple.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = apple.jpg; path = ../../../Downloads/apple.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 		00B7ADCF1AEBE4450042949B /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
+				0C64B8351AECCAEE0015BCC8 /* apple.jpg */,
 				00B7ADE71AEC2DBB0042949B /* 01.png */,
 				00B7ADE81AEC2DBB0042949B /* 02.png */,
 				00B7ADE91AEC2DBB0042949B /* 03.png */,
@@ -249,6 +252,7 @@
 				00B7ADF31AEC2DBB0042949B /* 03.png in Resources */,
 				00B7ADF11AEC2DBB0042949B /* 01.png in Resources */,
 				00B7ADD11AEBE8F50042949B /* raster.jpg in Resources */,
+				0C64B8361AECCAEE0015BCC8 /* apple.jpg in Resources */,
 				0C4EAEF61AEB8601009505EF /* Main.storyboard in Resources */,
 				0C4EAEFB1AEB8601009505EF /* LaunchScreen.xib in Resources */,
 				00B7ADF81AEC2DBB0042949B /* 08.png in Resources */,

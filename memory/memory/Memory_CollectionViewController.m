@@ -33,17 +33,17 @@ static NSString * const reuseIdentifier = @"CardCell";
         cell.cardImage.hidden = YES;
     }
     
-//    for (NSUInteger i=0; i<memoryImages.count; i++) {
-//        NSUInteger remainingCount = memoryImages.count - i;
-//        NSUInteger exchangeIndex = i + arc4random_uniform((u_int32_t)remainingCount);
-//        [memoryImages exchangeObjectAtIndex:i withObjectAtIndex:exchangeIndex];
-//    }
+//   for (NSUInteger i=0; i<self.collectionView.memoryImages.count; i++) {
+ //       NSUInteger remainingCount = memoryImages.count - i;
+   //    NSUInteger exchangeIndex = i + arc4random_uniform((u_int32_t)remainingCount);
+   //     [memoryImages exchangeObjectAtIndex:i withObjectAtIndex:exchangeIndex];
+  // }
     
     [self updateLabels];
 }
 
 -(void)updateLabels{
-    [self.ProgressLabel setText: [NSString stringWithFormat:  @"%d von %d Paaren gefunden!", matchedPairCount, memoryImages.count/2 ]];
+    [self.ProgressLabel setText: [NSString stringWithFormat:  @"%d von %u Paaren gefunden!", matchedPairCount, memoryImages.count/2 ]];
     [self.TryLabel setText: [NSString stringWithFormat:  @"%d Züge genutzt!", tryCount]];
 }
 
@@ -57,11 +57,12 @@ static NSString * const reuseIdentifier = @"CardCell";
     
     [memoryImages addObjectsFromArray:memoryImages];
     
-    for (NSUInteger i=0; i<memoryImages.count; i++) {
-        NSUInteger remainingCount = memoryImages.count - i;
-        NSUInteger exchangeIndex = i + arc4random_uniform((u_int32_t)remainingCount);
-        [memoryImages exchangeObjectAtIndex:i withObjectAtIndex:exchangeIndex];
-    }
+//    for (NSUInteger i=0; i<memoryImages.count; i++) {
+//        NSUInteger remainingCount = memoryImages.count - i;
+//        NSUInteger exchangeIndex = i + arc4random_uniform((u_int32_t)remainingCount);
+//        [memoryImages exchangeObjectAtIndex:i withObjectAtIndex:exchangeIndex];
+//    }
+    
     
     [self updateLabels];
 
@@ -130,6 +131,7 @@ static NSString * const reuseIdentifier = @"CardCell";
                 //Karten aus Spiel entfernen
                 matchedPairCount++;
                 if (matchedPairCount == memoryImages.count / 2) {
+                    NSLog(@"gewonnen");
                     UIAlertView *alert = [[UIAlertView alloc]initWithTitle: @"Gewonnen!"
                                                                    message: @"in %d Zügen"
                                                                   delegate: self
